@@ -1,0 +1,8 @@
+c:\users\alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\RedMan.xnb
+c:\users\alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\ACM2D.exe
+c:\users\alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\ACM2D.pdb
+c:\users\alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\obj\x86\Debug\ACM2D.exe
+c:\users\alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\obj\x86\Debug\ACM2D.pdb
+C:\Users\Alexander\Documents\Visual Studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\BlueMan.xnb

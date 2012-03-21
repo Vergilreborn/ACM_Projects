@@ -1,0 +1,2 @@
+Content\RedMan.xnb
+Content\BlueMan.xnb
