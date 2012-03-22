@@ -19,16 +19,70 @@
       <Output>C:\Users\Alexander\Documents\Visual Studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\BlueMan.xnb</Output>
       <Time>2012-03-19T18:44:35.431074-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\Laser.png</Source>
+      <Name>Sprites\Laser</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\Sprites\Laser.xnb</Output>
+      <Time>2012-03-22T11:20:04.2650475-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Missile.png</Source>
+      <Name>Sprites\Missile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\Sprites\Missile.xnb</Output>
+      <Time>2012-03-22T11:20:04.2680477-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\ShipSprite1.png</Source>
+      <Name>Sprites\ShipSprite1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\Sprites\ShipSprite1.xnb</Output>
+      <Time>2012-03-22T14:30:02.2556636-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\ShipSprite2.png</Source>
+      <Name>Sprites\ShipSprite2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\Sprites\ShipSprite2.xnb</Output>
+      <Time>2012-03-22T11:20:04.274048-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\ShipSprite3.png</Source>
+      <Name>Sprites\ShipSprite3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\Sprites\ShipSprite3.xnb</Output>
+      <Time>2012-03-22T11:20:04.2780482-04:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2012-03-22T12:55:22.4101067-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Alexander\Documents\Visual Studio 2010\Projects\ACM2D\ACM2D\ACM2DContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Alexander\Documents\Visual Studio 2010\Projects\ACM2D\ACM2D\ACM2D\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Alexander\Documents\Visual Studio 2010\Projects\ACM2D\ACM2D\ACM2DContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Alexander\Documents\Visual Studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2DContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2DContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

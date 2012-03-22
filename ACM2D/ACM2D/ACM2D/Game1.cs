@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Media;
 
 namespace ACM2D
@@ -20,6 +21,7 @@ namespace ACM2D
         SpriteBatch spriteBatch;
         Player redMan;
         Player blueMan;
+        SpriteFont font;
         KeyboardState current, previous;
 
         public Game1()
@@ -27,6 +29,7 @@ namespace ACM2D
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1024;
             graphics.PreferredBackBufferHeight = 600;
+            
             graphics.ApplyChanges();
             Content.RootDirectory = "Content";
         }
@@ -57,10 +60,14 @@ namespace ACM2D
             current = previous = Keyboard.GetState();
 
             //initialize the player by Texture,position,width,height,speed
-            redMan = new Player(Content.Load<Texture2D>("RedMan"), new Vector2(10, 10), 60, 60, 4.0f,0);
-            blueMan = new Player(Content.Load<Texture2D>("BlueMan"), new Vector2(graphics.PreferredBackBufferWidth - 70, 10), 60, 60, 4.0f,1);
+            redMan = new Player(Content.Load<Texture2D>("RedMan"), Content.Load<Texture2D>("Sprites/ShipSprite1"), new Vector2(50, 50),
+                                new Rectangle(0,0,60,60), new Rectangle(0,0,32,32), 4.0f,0);
+            blueMan = new Player(Content.Load<Texture2D>("BlueMan"),Content.Load<Texture2D>("Sprites/ShipSprite2"), new Vector2(graphics.PreferredBackBufferWidth - 120, 50),
+                                new Rectangle(0,0,60,60), new Rectangle(0,0,32,32), 4.0f,1);
 
-            // TODO: use this.Content to load your game content here
+
+            //initialize font
+            font = Content.Load<SpriteFont>("SpriteFont1");
         }
 
         /// <summary>
@@ -92,8 +99,8 @@ namespace ACM2D
 
 
             //update the redMan
-            redMan.update(gameTime, current);
-            blueMan.update(gameTime, current);
+            redMan.update(gameTime, current,previous);
+            blueMan.update(gameTime, current,previous);
 
             base.Update(gameTime);
 
@@ -109,14 +116,18 @@ namespace ACM2D
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
+           
+            
 
             //begin drawing 
             spriteBatch.Begin();
 
             //Draws the player
-            spriteBatch.Draw(redMan.manSheet, redMan.destRect, redMan.sourceRect, Color.White);
-            spriteBatch.Draw(blueMan.manSheet, blueMan.destRect, blueMan.sourceRect, Color.White);
-
+            redMan.DrawShip(spriteBatch);
+            blueMan.DrawShip(spriteBatch);
+            redMan.DrawAura(spriteBatch,font);
+            blueMan.DrawAura(spriteBatch,font);
+           
             //Stops drawing
             spriteBatch.End();
 
