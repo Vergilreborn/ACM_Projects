@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -23,6 +24,19 @@ namespace ACM2D
         Player blueMan;
         SpriteFont font;
         KeyboardState current, previous;
+        Texture2D titleScreen;
+        GameState currentState = GameState.TitleScreen;
+
+        public enum GameState{
+
+            TitleScreen,
+            MainMenu,
+            SinglePlayer,
+            MultiPlayer,
+            Paused,
+            GameOver
+
+        }
 
         public Game1()
         {
@@ -58,13 +72,14 @@ namespace ACM2D
 
             //Initalize the keyBoardStates
             current = previous = Keyboard.GetState();
+            
 
             //initialize the player by Texture,position,width,height,speed
             redMan = new Player(Content.Load<Texture2D>("RedMan"), Content.Load<Texture2D>("Sprites/ShipSprite1"), new Vector2(50, 50),
                                 new Rectangle(0,0,60,60), new Rectangle(0,0,32,32), 4.0f,0);
             blueMan = new Player(Content.Load<Texture2D>("BlueMan"),Content.Load<Texture2D>("Sprites/ShipSprite2"), new Vector2(graphics.PreferredBackBufferWidth - 120, 50),
                                 new Rectangle(0,0,60,60), new Rectangle(0,0,32,32), 4.0f,1);
-
+            titleScreen = Content.Load<Texture2D>("Graphics/TitleScreenForGame");
 
             //initialize font
             font = Content.Load<SpriteFont>("SpriteFont1");
@@ -95,13 +110,23 @@ namespace ACM2D
 
             if (current.IsKeyDown(Keys.Tab) && previous.IsKeyDown(Keys.Tab))
                 graphics.ToggleFullScreen();
+
+
+            switch (currentState){
+                case GameState.TitleScreen:
+                    if (current.IsKeyDown(Keys.Enter) && previous.IsKeyUp(Keys.Enter))
+                        currentState = GameState.SinglePlayer;
+                    break;
+                //The Game is Active so we must update the players
+                case GameState.SinglePlayer:
+                case GameState.MultiPlayer: 
+                        redMan.update(gameTime, current, previous);
+                        blueMan.update(gameTime, current, previous); 
+                        break;
+
+            }
+
             
-
-
-            //update the redMan
-            redMan.update(gameTime, current,previous);
-            blueMan.update(gameTime, current,previous);
-
             base.Update(gameTime);
 
             //set the previous state to current
@@ -121,13 +146,19 @@ namespace ACM2D
 
             //begin drawing 
             spriteBatch.Begin();
-
+            switch(currentState){
+                case GameState.TitleScreen:
+                    spriteBatch.Draw(titleScreen, new Vector2(0, 0), Color.White);
+                    break;
             //Draws the player
-            redMan.DrawShip(spriteBatch);
-            blueMan.DrawShip(spriteBatch);
-            redMan.DrawAura(spriteBatch,font);
-            blueMan.DrawAura(spriteBatch,font);
-           
+                case GameState.SinglePlayer:
+                case GameState.MultiPlayer:
+                    redMan.DrawShip(spriteBatch);
+                    blueMan.DrawShip(spriteBatch);
+                    redMan.DrawAura(spriteBatch,font);
+                    blueMan.DrawAura(spriteBatch,font);
+                    break;
+            }
             //Stops drawing
             spriteBatch.End();
 

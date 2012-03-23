@@ -73,6 +73,15 @@
       <Output>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
       <Time>2012-03-22T12:55:22.4101067-04:00</Time>
     </Item>
+    <Item>
+      <Source>Graphics\TitleScreenForGame.png</Source>
+      <Name>Graphics\TitleScreenForGame</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\Graphics\TitleScreenForGame.xnb</Output>
+      <Time>2012-03-22T22:02:36.8387938-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
