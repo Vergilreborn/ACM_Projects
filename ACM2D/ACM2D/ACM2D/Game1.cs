@@ -76,9 +76,9 @@ namespace ACM2D
 
             //initialize the player by Texture,position,width,height,speed
             redMan = new Player(Content.Load<Texture2D>("RedMan"), Content.Load<Texture2D>("Sprites/ShipSprite1"), new Vector2(50, 50),
-                                new Rectangle(0,0,60,60), new Rectangle(0,0,32,32), 4.0f,0);
+                                new Rectangle(0,0,60,60), new Rectangle(0,0,32,32), 4.0f,0,Content,graphics.GraphicsDevice.Viewport);
             blueMan = new Player(Content.Load<Texture2D>("BlueMan"),Content.Load<Texture2D>("Sprites/ShipSprite2"), new Vector2(graphics.PreferredBackBufferWidth - 120, 50),
-                                new Rectangle(0,0,60,60), new Rectangle(0,0,32,32), 4.0f,1);
+                                new Rectangle(0, 0, 60, 60), new Rectangle(0, 0, 32, 32), 4.0f, 1, Content, graphics.GraphicsDevice.Viewport);
             titleScreen = Content.Load<Texture2D>("Graphics/TitleScreenForGame");
 
             //initialize font
