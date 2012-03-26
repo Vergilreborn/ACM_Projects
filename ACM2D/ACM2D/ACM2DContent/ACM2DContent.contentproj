@@ -56,11 +56,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Laser.png">
-      <Name>Laser</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Sprites\Missile.png">
       <Name>Missile</Name>
       <Importer>TextureImporter</Importer>
@@ -93,6 +88,13 @@
   <ItemGroup>
     <Compile Include="Graphics\TitleScreenForGame.png">
       <Name>TitleScreenForGame</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Laser.png">
+      <Name>Laser</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

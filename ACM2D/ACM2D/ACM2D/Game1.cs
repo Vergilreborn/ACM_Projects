@@ -20,8 +20,11 @@ namespace ACM2D
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        List<Player> players;
         Player redMan;
         Player blueMan;
+        Debugging debugTerminal;
+        bool debugging = false;
         SpriteFont font;
         KeyboardState current, previous;
         Texture2D titleScreen;
@@ -81,6 +84,12 @@ namespace ACM2D
                                 new Rectangle(0, 0, 60, 60), new Rectangle(0, 0, 32, 32), 4.0f, 1, Content, graphics.GraphicsDevice.Viewport);
             titleScreen = Content.Load<Texture2D>("Graphics/TitleScreenForGame");
 
+            players = new List<Player>();
+            players.Add(redMan);
+            players.Add(blueMan);
+
+            debugTerminal = new Debugging(players, graphics.GraphicsDevice.Viewport);
+            
             //initialize font
             font = Content.Load<SpriteFont>("SpriteFont1");
         }
@@ -119,10 +128,16 @@ namespace ACM2D
                     break;
                 //The Game is Active so we must update the players
                 case GameState.SinglePlayer:
-                case GameState.MultiPlayer: 
-                        redMan.update(gameTime, current, previous);
-                        blueMan.update(gameTime, current, previous); 
-                        break;
+                case GameState.MultiPlayer:
+                    if (current.IsKeyDown(Keys.RightShift) && previous.IsKeyUp(Keys.RightShift))
+                        debugging = !debugging;
+                    
+                    if (debugging)
+                        debugTerminal.update(gameTime, current ,previous);
+                    else
+                        foreach (Player men in players)
+                            men.update(gameTime, current, previous);
+                    break;
 
             }
 
@@ -153,10 +168,13 @@ namespace ACM2D
             //Draws the player
                 case GameState.SinglePlayer:
                 case GameState.MultiPlayer:
-                    redMan.DrawShip(spriteBatch);
-                    blueMan.DrawShip(spriteBatch);
-                    redMan.DrawAura(spriteBatch,font);
-                    blueMan.DrawAura(spriteBatch,font);
+                    foreach (Player men in players)
+                    {
+                        men.DrawShip(spriteBatch);
+                        men.DrawAura(spriteBatch, font);
+                    }
+                    if (debugging)
+                        debugTerminal.Draw(spriteBatch, font);
                     break;
             }
             //Stops drawing
