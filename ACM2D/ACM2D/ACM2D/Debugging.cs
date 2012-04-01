@@ -20,13 +20,13 @@ namespace ACM2D
         List<Player> players;
         String information;
         List<String> terminalDataShown;
-        
-        
-        
-        public Debugging(List<Player> players, Viewport viewport){
+        MapReader map;
+
+        public Debugging(List<Player> players, MapReader map, Viewport viewport){
             this.players = players;
             this.viewport = viewport;
             terminalDataShown = new List<String>();
+            this.map = map;
 
         }
 
@@ -50,7 +50,6 @@ namespace ACM2D
                         if (current.GetPressedKeys()[j].Equals(previous.GetPressedKeys()[i]))
                             notPressed = true;
                     }
-
 
                     if (!notPressed)
                     {
@@ -100,17 +99,40 @@ namespace ACM2D
             }
            
             String printData = "";
+            if (information.Equals(""))
+                return;
             String[] parsedInfo = information.Split(' ');
 
             switch(parsedInfo[0]){
-                case "-HELP": printData = "Player <playerNumber> <DataInfo> <new change>"; break;
+                case "-HELP": printData = "Player <playerNumber> to change weapon OR DEBUG <0,1>"; break;
                 case "PLAYER":
-                    if (isNum(parsedInfo[1]) && int.Parse(parsedInfo[1])<2 && int.Parse(parsedInfo[1])>-1)
+                    if (parsedInfo.Length == 2)
                     {
-                        players[int.Parse(parsedInfo[1])].current =
-                               (players[int.Parse(parsedInfo[1])].current + 1) % 2;
-                        printData = "Player " +parsedInfo[1] + " weapon change";
+                        if (isNum(parsedInfo[1]) && int.Parse(parsedInfo[1]) < 2 && int.Parse(parsedInfo[1]) > -1)
+                        {
+                            players[int.Parse(parsedInfo[1])].current =
+                                   (players[int.Parse(parsedInfo[1])].current + 1) % 2;
+                            printData = "Player " + parsedInfo[1] + " weapon change";
+                            break;
+                        }
                     }
+                    printData = "Player <playerNumber> to change weapon";
+                    break;
+                case "DEBUG":
+                    if (parsedInfo.Length == 2)
+                    {
+
+                        if (isNum(parsedInfo[1]) && int.Parse(parsedInfo[1]) < 2 && int.Parse(parsedInfo[1]) > -1)
+                        {
+                            map.debugOnOff(int.Parse(parsedInfo[1]));
+                            printData = "Debugging " + map.getDebugStatus();
+                          
+                            break;
+                        }
+
+                    }
+                    else
+                        printData = "DEBUG <0,1> \'0 is On, 1 is Off\'";
                     break;
 
             }
@@ -135,6 +157,9 @@ namespace ACM2D
         }
 
         public bool isNum(String num){
+            if (num.Equals(""))
+
+                return false;
             char [] numArray = num.ToCharArray();
             for (int i = 0; i < numArray.Length; i++)
                 if (numArray[i] < '0' || numArray[i] > '9')

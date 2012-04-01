@@ -29,6 +29,8 @@ namespace ACM2D
         KeyboardState current, previous;
         Texture2D titleScreen;
         GameState currentState = GameState.TitleScreen;
+        Camera cam;
+        MapReader map;
 
         public enum GameState{
 
@@ -84,11 +86,22 @@ namespace ACM2D
                                 new Rectangle(0, 0, 60, 60), new Rectangle(0, 0, 32, 32), 4.0f, 1, Content, graphics.GraphicsDevice.Viewport);
             titleScreen = Content.Load<Texture2D>("Graphics/TitleScreenForGame");
 
+            //Builds a map and lets the first test map go
+            map = new MapReader(Content.Load<Texture2D>("XuCubeTiles"));
+            map.init();
+            map.buildMap("Content/Levels/level",0);
+            
+            
+
             players = new List<Player>();
             players.Add(redMan);
             players.Add(blueMan);
 
-            debugTerminal = new Debugging(players, graphics.GraphicsDevice.Viewport);
+            //Building the camera
+            cam = new Camera(graphics.GraphicsDevice.Viewport, Vector2.Zero);
+            cam.Follow(redMan);
+
+            debugTerminal = new Debugging(players, map, graphics.GraphicsDevice.Viewport);
             
             //initialize font
             font = Content.Load<SpriteFont>("SpriteFont1");
@@ -137,11 +150,13 @@ namespace ACM2D
                     else
                         foreach (Player men in players)
                             men.update(gameTime, current, previous);
+                    cam.Update(gameTime, redMan.destRectShip);
+                
+          
                     break;
 
             }
 
-            
             base.Update(gameTime);
 
             //set the previous state to current
@@ -161,13 +176,17 @@ namespace ACM2D
 
             //begin drawing 
             spriteBatch.Begin();
+           // spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, cam.transform);
+
             switch(currentState){
                 case GameState.TitleScreen:
                     spriteBatch.Draw(titleScreen, new Vector2(0, 0), Color.White);
                     break;
-            //Draws the player
+                //Draws the player
                 case GameState.SinglePlayer:
                 case GameState.MultiPlayer:
+                    map.Draw(spriteBatch);
+
                     foreach (Player men in players)
                     {
                         men.DrawShip(spriteBatch);
@@ -175,6 +194,7 @@ namespace ACM2D
                     }
                     if (debugging)
                         debugTerminal.Draw(spriteBatch, font);
+                   
                     break;
             }
             //Stops drawing

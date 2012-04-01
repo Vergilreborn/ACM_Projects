@@ -82,16 +82,25 @@
       <Output>C:\Users\Alexander\Documents\Visual Studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\Sprites\Laser.xnb</Output>
       <Time>2012-03-25T18:58:00.3791088-04:00</Time>
     </Item>
+    <Item>
+      <Source>XuCubeTiles.png</Source>
+      <Name>XuCubeTiles</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\XuCubeTiles.xnb</Output>
+      <Time>2012-03-28T16:09:59.6665845-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Alexander\Documents\Visual Studio 2010\Projects\ACM2D\ACM2D\ACM2DContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Alexander\Documents\Visual Studio 2010\Projects\ACM2D\ACM2D\ACM2D\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Alexander\Documents\Visual Studio 2010\Projects\ACM2D\ACM2D\ACM2DContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Alexander\Documents\Visual Studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2DContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2DContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Alexander\documents\visual studio 2010\Projects\ACM2D\ACM2D\ACM2D\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

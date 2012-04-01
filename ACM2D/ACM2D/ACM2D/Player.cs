@@ -25,6 +25,7 @@ namespace ACM2D
         private Texture2D boxAura;
         private Texture2D ship;
         private Viewport screen;
+        private MapReader map;
         public Rectangle destRectBox;
         public Vector2 destRectShip;
         public Rectangle sourceRectBox;
@@ -67,6 +68,7 @@ namespace ACM2D
             this.speed = speed;
             destRectBox = new Rectangle((int)position.X  , (int)position.Y , width, height);
 
+            //Initiate the weapons
             init(content);
 
             //The player's ID
@@ -97,7 +99,7 @@ namespace ACM2D
         //or if the boxAura is being controlled
         //Box Aura will be controlled by mouse in later development ---IDEA---
         public void update(GameTime time, KeyboardState currentKeyBoard, KeyboardState previous){
-
+            
          
 
                 //If any bullets where shot update them
@@ -154,7 +156,7 @@ namespace ACM2D
 
          
 
-
+            //Animates the box
             animateSprite(time);
 
         }
@@ -215,5 +217,16 @@ namespace ACM2D
           
 
         }
+
+        //Returns the center of this sprite
+        public Vector2 getCenter(){
+            return destRectShip;
+        }
+
+        public void connect(MapReader map){
+            this.map = map;
+
+        }
+
     }
 }
