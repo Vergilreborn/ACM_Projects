@@ -32,6 +32,7 @@ namespace ACM2D
         Camera cam;
         MapReader map;
 
+        //Allows for gameStates
         public enum GameState{
 
             TitleScreen,
@@ -43,6 +44,7 @@ namespace ACM2D
 
         }
 
+        //Initiates the game setting the size of the window
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -101,6 +103,7 @@ namespace ACM2D
             cam = new Camera(graphics.GraphicsDevice.Viewport, Vector2.Zero);
             cam.Follow(redMan);
 
+            //Creates the terminal
             debugTerminal = new Debugging(players, map, graphics.GraphicsDevice.Viewport);
             
             //initialize font
@@ -130,10 +133,11 @@ namespace ACM2D
             //get the keyboard state
             current = Keyboard.GetState();
 
+            //Toggles on and off the full screen option
             if (current.IsKeyDown(Keys.Tab) && previous.IsKeyDown(Keys.Tab))
                 graphics.ToggleFullScreen();
 
-
+            //Updates the game depending what state the game is
             switch (currentState){
                 case GameState.TitleScreen:
                     if (current.IsKeyDown(Keys.Enter) && previous.IsKeyUp(Keys.Enter))
@@ -187,11 +191,14 @@ namespace ACM2D
                 case GameState.MultiPlayer:
                     map.Draw(spriteBatch);
 
+                    //Draws each of the players with the according font
+                    //for detecting information change
                     foreach (Player men in players)
                     {
                         men.DrawShip(spriteBatch);
                         men.DrawAura(spriteBatch, font);
                     }
+                    //Draw if the player entered the command for a terminal
                     if (debugging)
                         debugTerminal.Draw(spriteBatch, font);
                    

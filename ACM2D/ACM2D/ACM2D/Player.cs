@@ -212,10 +212,6 @@ namespace ACM2D
             //40 represents the offset to draw the sprites data information
             spriteBatch.DrawString(font, debug, new Vector2(destRectShip.X + 40, destRectShip.Y), Color.White);
 
-            //draws the terminal for entering data information
-
-          
-
         }
 
         //Returns the center of this sprite
